@@ -125,9 +125,6 @@ python3.pkgs.buildPythonApplication rec {
         [
           psycopg2
         ];
-    saml2 = [
-      pysaml2
-    ];
     oidc = [
       authlib
     ];
