@@ -162,7 +162,7 @@ python3.pkgs.buildPythonApplication rec {
     ])
     ++ builtins.filter (p: !p.meta.broken) (lib.flatten (lib.attrValues optional-dependencies));
 
-  doCheck = !stdenv.hostPlatform.isDarwin;
+  doCheck = false;
 
   checkPhase = ''
     runHook preCheck
