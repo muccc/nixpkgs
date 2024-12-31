@@ -81,7 +81,6 @@ let
     cfg.extras
     ++ lib.optional (cfg.settings ? oidc_providers) "oidc"
     ++ lib.optional (cfg.settings ? jwt_config) "jwt"
-    ++ lib.optional (cfg.settings ? saml2_config) "saml2"
     ++ lib.optional (cfg.settings ? redis) "redis"
     ++ lib.optional (cfg.settings ? sentry) "sentry"
     ++ lib.optional (cfg.settings ? user_directory) "user-search"
@@ -641,7 +640,7 @@ in
           readOnly = true;
           description = ''
             Reference to the `matrix-synapse` wrapper with all extras
-            (e.g. for `oidc` or `saml2`) added to the `PYTHONPATH` of all executables.
+            (e.g. for `oidc`) added to the `PYTHONPATH` of all executables.
 
             This option is useful to reference the "final" `matrix-synapse` package that's
             actually used by `matrix-synapse.service`. For instance, when using
@@ -669,7 +668,6 @@ in
               "oidc"         # OpenID Connect authentication
               "postgres"     # PostgreSQL database backend
               "redis"        # Redis support for the replication stream between worker processes
-              "saml2"        # SAML2 authentication
               "sentry"       # Error tracking and performance metrics
               "systemd"      # Provide the JournalHandler used in the default log_config
               "url-preview"  # Support for oEmbed URL previews
